@@ -114,11 +114,19 @@ int dealerPlay(card cards[8], deck *d)
     int count = 2;
     int total;
     Deck_deal(d, &cards[1]);
+    printf("The dealer turns over their face-down card: ");
+    printCard(cards[1]);
+    printf("\n");
+    fflush(stdout);
     total = handTotal(cards, count);
     // The dealer must draw until the total is 17 or more, then stand.
     while (total < 17 && count < 8)
     {
         Deck_deal(d, &cards[count]);
+        printf("The dealer draws ");
+        printCard(cards[count]);
+        printf("\n");
+        fflush(stdout);
         count++;
         total = handTotal(cards, count);
     }
